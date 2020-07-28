@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PRN Number </title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	</head>
+  <style type="text/css">
+    body{
+      text-align: center;
+      padding: 130px;
+      background-color: rgb(191, 201, 202 );
+     // color: white;
+    }
+  </style>
+<body>
+
+
+
+<h1 id="prn">Fill following Details to Generate PRN</h1>
+<hr>
+<label for="year">Select Admission Year :</label>
+<select  name="year" id="year">
+          <option value="17">2017</option>
+          <option value="18">2018</option>
+          <option value="19">2019</option>
+          <option value="20">2020</option>
+        </select>
+
+<br><br>
+<label for="branch">Select Branch :</label>
+<select  name="branch" id="branch">
+          <option value="IT">Information Technology</option>
+          <option value="CS">Computer Science</option>
+          <option value="ME">Mechanical</option>
+          <option value="CV">Civil</option>
+          <option value="CH">Chemical</option>
+          <option value="EL">Electronics</option>
+          <option value="EX">Electrical and Tele Communications</option>
+        </select>
+<br><br>
+ <label for="batch">Select Batch :</label>
+<select  name="batch" id="batch">
+          <option value="01">1</option>
+          <option value="02">2</option>
+          <option value="03">3</option>
+          <option value="04">4</option>
+          <option value="05">5</option>
+          <option value="06">6</option>
+          <option value="07">7</option>
+          <option value="08">8</option>
+          <option value="09">9</option>
+          <option value="10">10</option>
+          
+        </select>
+<br><br>
+
+<button onclick="submit();">Submit</button>
+<button onclick="prn();">Generate PRN</button>
+
+
+	<script>
+
+	
+
+    var i = 0;
+    function prn() {
+        i++;
+        var n=i;
+        if(n<10){
+        n="000"+n
+    	}else if(n<100){
+    	n="00"+n	
+    	}else if(n<1000){
+    	n="0"+n	
+    	}
+
+    	var y = document.getElementById("year");
+    	var m = y.options[y.selectedIndex].text;
+        m=m%100;
+
+
+        var b = document.getElementById("branch");
+   		var p = b.options[b.selectedIndex].value;
+
+   		var ba = document.getElementById("batch");
+   		var l = ba.options[ba.selectedIndex].value;
+
+
+
+
+    	var prn=m+p+l+n
+
+        document.getElementById('prn').innerHTML =prn;
+
+        console.log(m)
+        console.log(n)
+        }
+       
+       function submit(){
+
+       	alert("PRN Submitted Succefully")
+       }
+    
+</script>
+
+
+</body>
+</html>
